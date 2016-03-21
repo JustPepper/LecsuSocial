@@ -32,7 +32,8 @@ class UserController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function searchUsers(Request $request) { 
-        $results = User::SearchByKeyword($request->input('keyword'))->get();
+        //$results = User::SearchByKeyword($request->input('keyword'))->get();
+        $results = User::all()->take(20);
         return view('pages.search')->with('results', $results);
     }
 

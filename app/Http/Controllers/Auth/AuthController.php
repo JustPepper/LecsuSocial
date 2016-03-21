@@ -68,6 +68,7 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {   
+        $referal_id = NULL; 
         if ($data['codigo']) {
             $referal_id = User::where('codigo', '=', $data['codigo'])->first()->id;
         }

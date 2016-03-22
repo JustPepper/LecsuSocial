@@ -17,38 +17,11 @@
                                         <button><svg><use xlink:href="#bookmark" /></svg>Quiero leer</button>
                                     </form>
                                     <a href="#"><svg><use xlink:href="#community" /></svg>Foro</a>
-                                    <a href="#"><svg><use xlink:href="#content" /></svg>Obtener</a>
-                                </div>
-                            </div>
-                            <h1 class="book-name">{{ $content->name }}</h1>
-                            <small class="book-author">por <a href="#">{{ $content->author }}</a></small>
-                            <h2 class="book-price">{{ $content->price }} Creditos</h2>
-                            <div class="book-info">
-                                <div class="info-content">
-                                    <h2>DESCRIPCIÓN</h2>
-                                    <p>{{ $content->description }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div> 
-            </div>
-            <div class="main-item">
-                <div class="main-item-title">
-                    <h1 class="">Revistas</h1>
-                    <a href="#" class="zoom-content"><svg><use xlink:href="#lens" /></svg></a>
-                </div> 
-                <div class="main-item-slider">
-                    @foreach($contents->where('type', 'Revista') as $content)      
-                        <div class="book">
-                            <div class="book-cover" style="background-image: url({{ $content->cover }});">
-                                <div class="book-hover">
-                                    <a href="#"><svg><use xlink:href="#info" /></svg>Detalles</a>
-                                    <form action="">
-                                        <button><svg><use xlink:href="#bookmark" /></svg>Quiero leer</button>
-                                    </form>
-                                    <a href="#"><svg><use xlink:href="#community" /></svg>Foro</a>
-                                    <a href="#"><svg><use xlink:href="#content" /></svg>Obtener</a>
+                                    @if($content->price == 0)
+                                        <a href="{{ route('reader', $content->slug) }}"><svg><use xlink:href="#content" /></svg>Leer</a>
+                                    @else
+                                        <a href="#"><svg><use xlink:href="#content" /></svg>Obtener</a>
+                                    @endif
                                 </div>
                             </div>
                             <h1 class="book-name">{{ $content->name }}</h1>

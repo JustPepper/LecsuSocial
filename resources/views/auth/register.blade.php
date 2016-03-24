@@ -27,6 +27,10 @@
                 </div>
                 <div class="ct-form-input">
                     <input type="text" name="codigo" placeholder="Código de la persona que lo invitó">
+                    <div class="input-tooltip rd">
+                        <h1>Código referido</h1>
+                        <p>Tener una cuenta en Lecsu es totalmente gratis, si tienes el código de la persona que te invitó úsalo, si no siempre puedes agregarlo después.</p>
+                    </div>
                     {!! $errors->has('codigo') ? $errors->first('codigo', '<span>:message</span>') : null  !!}
                 </div>
                 <p>Al crear una cuenta con Lecsu estás aceptando los <a href="#">Términos de uso y condiciones</a>, además aceptas recibir correos electrónicos de Lecsu.</p>
@@ -35,5 +39,6 @@
                 </div>
             {!! Form::close() !!}
         </div>
+        <a href="{{ route('login') }}" class="loginLink">Ya tengo una cuenta Lecsu</a>
     </div>
 @endsection

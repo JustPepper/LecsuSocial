@@ -18,6 +18,10 @@ $('.responsive-menu').click(function(){
 	console.log('click');
 });
 
+$('.ct-form-input input').focus(function(){
+    $(this).next('.input-tooltip').toggleClass('show-tooltip');
+});
+
 jQuery(document).ready(function() {
     jQuery('.tabs .tab').on('click', function(e)  {
         var currentAttrValue = jQuery(this).attr('tab');
@@ -29,6 +33,13 @@ jQuery(document).ready(function() {
         jQuery(this).addClass('tab-active').siblings().removeClass('tab-active');
  
     });
+});
+
+$('.ct-form-input input').focusout(function(){
+    $(this).next('.input-tooltip').addClass('show-tooltip');
+});
+$('.ct-form-input input').focusout(function(){
+    $(this).next('.input-tooltip').removeClass('show-tooltip');
 });
 
 $('.count-comments').click(function(){

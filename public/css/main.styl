@@ -1570,6 +1570,7 @@ main
 		flex-wrap wrap
 		justify-content space-between
 		margin-bottom 10px
+		position relative
 		select
 		input
 			size(100%, 36px)
@@ -1580,8 +1581,48 @@ main
 			font-weight 300
 			outline 0
 			padding-left 10px
+			&:focus
+				box-shadow 0px 0px 2px azul
+				border 0
 		.input-col
 			width 49%
+		.input-tooltip
+			position absolute
+			padding 15px
+			width 225px
+			left -235px
+			top -50%
+			background white
+			border 1px solid
+			border-color azul
+			text-align justify
+			box-shadow 0px 0px 3px rgba(#333, .50)
+			opacity 0
+			transition all 250ms
+			&:after
+				content ''
+				display block
+				width: 0; 
+				height: 0; 
+				border-top: 8px solid transparent;
+				border-bottom: 8px solid transparent;
+				border-left: 8px solid white;
+				position absolute
+				right -8px
+				top 29px
+			&:before
+				content ''
+				display block
+				width: 0; 
+				height: 0; 
+				border-top: 10px solid transparent;
+				border-bottom: 10px solid transparent;
+				border-left: 9px solid azul;
+				position absolute
+				right -9px
+				top 27px
+		.show-tooltip
+			opacity 1
 		span
 			color red
 			font-size 12px
@@ -1603,13 +1644,23 @@ main
 		display flex
 		justify-content flex-end
 		button
-			font-size 14px
+			font-size 12px
 			line-height 32px
 			padding 0 10px
 			font-family 'Oxygen'
 			display block
 			font-weight 700
 
+.loginLink
+	color rgba(#333, .50)
+	font-family 'Oxygen'
+	font-size 12px
+	display block
+	width 100%
+	text-align center
+	text-decoration underline
+	margin-top 10px
+	letter-spacing 1
 
 /*
  * Search results
@@ -1707,3 +1758,19 @@ main
 		line-height 1.3
 		font-size 12px
 		margin-bottom 5px
+
+
+/*
+ * Reader style!
+*/
+
+#reader
+	position fixed
+	size(100%)
+	.reader-wrapper
+		display flex
+		justify center
+		size(500px, 100%)
+		#area
+			size(100%)
+			

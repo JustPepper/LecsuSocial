@@ -1,0 +1,90 @@
+@import 'styl/*'
+
+reset()
+box-reset()
+
+azul = #0D4284
+
+html
+	font-family: 'Domine', serif;
+	column-rule: 1px outset rgba(#333, .25);
+p
+	line-height 2.2
+	text-align justify
+
+h1
+h2
+	font-family: 'Ubuntu', sans-serif;
+	font-size 22px
+
+
+.wrapper
+	size(100%)
+	position fixed
+	padding 45px 50px 10px
+	#reader
+		size(100%)
+		position relative
+		border-radius 3px
+		box-shadow: 0 0px 3px 0px transparent, 0 -9px 0px 0px transparent, 5px 0 7px -4px rgba(#333, .10), -5px 0 7px -4px rgba(#333, .10)		
+		background white
+		&:before
+			content ''
+			width 101%
+			height 100%
+			background white
+			position absolute
+			box-shadow: 0 0px 3px 0px transparent, 0 -9px 0px 0px transparent, 5px 0 7px -4px rgba(#333, .15), -5px 0 7px -4px rgba(#333, .15)		
+			background white
+			top 0
+			z-index -1
+			border-radius 3px
+			left -.5%
+		&:after
+			content ''
+			width 102%
+			height 100%
+			background white
+			z-index -2
+			position absolute
+			box-shadow: 0 0px 3px 0px transparent, 0 -9px 0px 0px transparent, 5px 0 7px -4px rgba(#333, .10), -5px 0 7px -4px rgba(#333, .10)		
+			background white
+			top 0
+			border-radius 3px
+			left -1%
+		#viewer
+			overflow hidden
+			size(100%)
+			margin 0 auto
+			z-index 999
+			padding 100px 150px
+			border-radius 3px
+			
+	
+.controls
+	position absolute
+	top 0
+	width 100%
+	height 40px
+	background white
+	z-index 999
+	border 1px solid rgba(#333, .50)
+	display flex
+	justify-content center
+	.arrows
+		height 100%
+		display flex
+		align-items center
+		user-select: none;
+		justify-content space-between
+		div
+			cursor pointer
+			display flex
+			justify-content center
+			align-items center
+			padding 0 10px
+			&:first-child
+				border-right 1px solid rgba(#333, .10)
+			svg
+				size(18px)
+				fill azul

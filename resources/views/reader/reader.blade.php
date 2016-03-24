@@ -21,18 +21,13 @@
 
             document.onreadystatechange = function () {
               if (document.readyState == "complete") {
-                EPUBJS.filePath = "/js/libs/";
                 window.reader = ePubReader("/content/narnia.epub");
-
                 /* GO TO */ 
                 //reader.book.goto('epubcfi(/6/16[LCDN1__1_.xhtml]!4/132/1:79)');
               }
             };
 
         </script>
-
-        <!-- Full Screen -->
-        <script src="/js/builds/libs/screenfull.min.js"></script>
 
         <!-- Render -->
         <script src="/js/build/epub.min.js"></script>
@@ -41,7 +36,7 @@
         <script src="/js/build/hooks.js"></script>
 
         <!-- Reader -->
-        <script src="/js/build/reader.min.js"></script>
+        <script src="/js/build/reader.js"></script>
         
 
       

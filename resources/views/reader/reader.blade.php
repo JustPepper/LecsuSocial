@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>{{ $content->title }}</title>
         <meta name="description" content="">
+        <meta name="csrf_token" content="{{ csrf_token() }}">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
         <meta name="apple-mobile-web-app-capable" content="yes">
 
@@ -17,20 +18,32 @@
         <script>
             "use strict";
 
+
+            $.ajaxSetup({
+              headers: {
+                  'X-CSRF-TOKEN': $('[name="csrf_token"]').attr('content')
+              }
+            });
+
             document.onreadystatechange = function () {
               if (document.readyState == "complete") {
                 window.reader = ePubReader("/content/narnia.epub");
+
+                /* Save last read */
                 reader.book.on('renderer:locationChanged', function(locationCfi){
-                    console.log(locationCfi)
+                $.post('/api/reading', { id: "{{ $content->id }}", epubcfi:  locationCfi}, function(data){
+                  console.log(data);
+                  });
                 });
+
+                @if($last_read)
+                  reader.book.goto('{{ $last_read->epubcfi }}');
+                @endif
+
               }
             }
 
         </script>
-
-        <!-- File Storage -->
-        <!-- <script src="js/libs/localforage.min.js"></script> -->
-
         <!-- Render -->
         <script src="/js/epub.min.js"></script>
 
@@ -39,14 +52,6 @@
 
         <!-- Reader -->
         <script src="/js/reader.min.js"></script>
-
-        <!-- Plugins -->
-        <!-- <script src="js/plugins/search.js"></script> -->
-
-        <!-- Highlights -->
-        <!-- <script src="js/libs/jquery.highlight.js"></script> -->
-        <!-- <script src="js/hooks/extensions/highlight.js"></script> -->
-
     </head>
     <body>
 
@@ -77,10 +82,6 @@
             <div class="item">
               <a href="#tocView"><svg><use xlink:href="#content" /></svg></a>
             </div>
-            <div class="item">
-              <a id="bookmark"><svg><use xlink:href="#bookmark" /></svg></a>
-              <a id=""><svg><use xlink:href="#settings" /></svg></a>
-            </div>
           </div>
         </div>
 
@@ -103,4 +104,7 @@
     
     </body>
     <script src="/js/app.min.js"></script>
+    <script>
+
+    </script>
 </html>

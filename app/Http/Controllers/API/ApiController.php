@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Models\Comment;
+use App\Models\Reading;
 use App\Models\Status;
 use Illuminate\Http\Request;
 
@@ -31,6 +32,12 @@ class ApiController extends Controller
 
     public function checkCommentLike($id) {
         return Response::json(Comment::find($id)->checkLike());
+    }
+
+    public function saveLastRead(Request $request) {
+        $reading = Reading::firstOrNew(['user_id' => Auth::id(), 'content_id' => $request->input('id')]);
+        $reading->epubcfi = $request->input('epubcfi');
+        $reading->save();
     }
 
 }

@@ -6,6 +6,7 @@
             Route::get('check/{id}', 'ApiController@checkFollower');
             Route::get('status/like/{id}', 'ApiController@checkStatusLike');
             Route::get('comment/like/{id}', 'ApiController@checkCommentLike');
+            Route::post('reading', 'ApiController@saveLastRead');
         });
 
     });

@@ -17,7 +17,11 @@
 	                        	</div>
 	                        	<div class="buttons">
 	                        		<a href="">Ver perfil</a>
-	                        		{!! Auth::id() == $result->id ? NULL :  '<follow follower="{{ $result->id }}"></follow>' !!}
+	                        		@if(Auth::id() == $result->id)
+										{{ NULL }}
+									@else
+										<follow follower="{{ $result->id }}"></follow>
+	                        		@endif
 	                        	</div>
 	                        </div>
 						</div>

@@ -29,6 +29,7 @@ class ContentController extends Controller
     }
 
     public function readLater($id) {
+        //
         $read = new Wishlist;
         $read->user_id = Auth::id();
         $read->content_id = $id;

@@ -13,7 +13,7 @@
 		            </div>
 
 					<div class="social-options">
-						@if( !Auth::id() == $user->id )
+						@if(Auth::id() != $user->id)
 							{!! Form::open(array('route' => ['follow', $user->id], 'method' => 'POST')) !!}
 								<button>SEGUIR</button>
 							{!! Form::close() !!}

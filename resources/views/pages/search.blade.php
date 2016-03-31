@@ -16,7 +16,7 @@
 		                        	<h2>Psicología, Comedia</h2>
 	                        	</div>
 	                        	<div class="buttons">
-	                        		<a href="">Ver perfil</a>
+	                        		<a href="{{ route('profile', $result->alias) }}">Ver perfil</a>
 	                        		@if(Auth::id() == $result->id)
 										{{ NULL }}
 									@else

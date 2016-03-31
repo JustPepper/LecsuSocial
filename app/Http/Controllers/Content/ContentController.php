@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Content;
 
-use App\Model\Wishlist;
 use App\Models\Content;
 use App\Models\Reading;
+use App\Models\Wishlist;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;

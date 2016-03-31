@@ -67,6 +67,11 @@ $('.hdr-nav-notifications').click(function(){
 	$(this).children('.notifications').toggle();
 });
 
+$('.drop-text').click(function(e){
+    e.preventDefault();
+    $(this).next().toggleClass('ul-show');
+})
+
 /* Zoom slider */
 
 
@@ -119,7 +124,7 @@ Vue.component('follow', {
         onSubmit: function(e) {
             e.preventDefault();
             var self = this;
-            var url = "follow/" + self.follower;
+            var url = "/follow/" + self.follower;
             $.ajax({
                 method: "POST",
                 url: url,
@@ -130,7 +135,7 @@ Vue.component('follow', {
         },
         checkFollower: function() {
             var self = this;
-            var url = "api/check/" + self.follower;
+            var url = "/api/check/" + self.follower;
             $.ajax({
                 method: "GET",
                 url: url,
@@ -180,7 +185,7 @@ Vue.component('ajaxbutton', {
         },
         check: function() {
             var self = this;
-            var url = 'api/' + self.type + '/like/' + self.id;
+            var url = '/api/' + self.type + '/like/' + self.id;
             $.ajax({
                 method: "GET",
                 url: url,
@@ -201,14 +206,14 @@ new Vue({
     el: 'body',
 
     data: {
-      photo: ''
+      photo: '',
     },
 
     created: function() {
         var self = this;
         $.ajax({
             method: "GET",
-            url: "api/photo",
+            url: "/api/photo",
             success: function(data) {
                 self.photo = data;
             }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Content;
 
+use App\Model\Wishlist;
 use App\Models\Content;
 use App\Models\Reading;
 use Illuminate\Http\Request;
@@ -9,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 
 class ContentController extends Controller
@@ -24,6 +26,15 @@ class ContentController extends Controller
             $last_read = Reading::where('user_id', Auth::id())->where('content_id', $content->id)->first();
     		return view('reader.reader', compact('content', 'last_read'));
     	}
+    }
+
+    public function readLater($id) {
+        $read = new Wishlist;
+        $read->user_id = Auth::id();
+        $read->content_id = $id;
+        $read->type = 'read';
+        $read->save();
+        return Redirect::back();
     }
 
 }

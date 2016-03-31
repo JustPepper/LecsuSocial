@@ -8,17 +8,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="csrf_token" content="{{ csrf_token() }}">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <link rel="icon" type="img/png" href="favicon.png">
+        <link rel="icon" type="img/png" href="/favicon.png">
         
         <!-- Picture Pollyfill -->
         <script>
             // Picture element HTML5 shiv
             document.createElement( "picture" );
         </script>
-        <script src="js/libs/picturefill.min.js" async></script>
+        <script src="/js/libs/picturefill.min.js" async></script>
         
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600|Roboto:400,300,500,700|Oxygen:400,700,300' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="/css/main.css">
 
     </head>
     <body>
@@ -30,16 +30,17 @@
             <div class="wrapper flex">
                 <a href="{{ url('/') }}" class="home-url">
                     <picture class="hdr-logo">
-                        <source media="(min-width: 600px)" srcset="img/lecsu-logo.svg">
-                        <img alt="LECSU : Lectura sustentable" src="img/lescu-logo-small.svg" height="100%">
+                        <source media="(min-width: 600px)" srcset="/img/lecsu-logo.svg">
+                        <img alt="LECSU : Lectura sustentable" src="/img/lescu-logo-small.svg" height="100%">
                     </picture>
                 </a>
                 @if(Auth::user())
                     <div class="hdr-menu">
                         <nav>
                             <ul>
-                                <li><a href="perfil.html">Perfil</a></li>
+                                <li><a href="{{ route('profile', strtolower(Auth::user()->alias)) }}">Perfil</a></li>
                                 <li><a href="{{ route('community') }}">Comunidad</a></li>
+                                <li><a href="{{ route('content') }}">Contenido</a></li>
                                 <li><a href="foros.html">Foros <small>0</small></a></li>
                             </ul>
                         </nav>
@@ -116,11 +117,10 @@
             <button v-bind:class="class" v-on:click="onClick">@{{ number }}  Me gusta</button>
         </template>
 
-
-        <script src="js/libs/jquery-1.12.0.min.js"></script>
+        <script src="/js/libs/jquery-1.12.0.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.17/vue.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.7.0/vue-resource.min.js"></script>
-        <script src="js/main.js"></script>
+        <script src="/js/main.js"></script>
         @yield('script')
     </body>
 </html>

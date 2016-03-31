@@ -27,7 +27,7 @@
 
             document.onreadystatechange = function () {
               if (document.readyState == "complete") {
-                window.reader = ePubReader("/content/narnia.epub");
+                window.reader = ePubReader("{{ $content->file }}");
 
                 /* Save last read */
                 reader.book.on('renderer:locationChanged', function(locationCfi){
@@ -82,7 +82,9 @@
             <div class="item">
               <a href="#tocView"><svg><use xlink:href="#content" /></svg></a>
             </div>
+            <a href="{{ route('content') }}">Contenido</a>
           </div>
+
         </div>
 
         <div id="divider"></div>
@@ -99,7 +101,7 @@
             </div>
         </div>
 
-        <div id="loader"><img src="img/loader.gif"></div>
+        <div id="loader"><img src="/img/loader.gif"></div>
       </div>
     
     </body>

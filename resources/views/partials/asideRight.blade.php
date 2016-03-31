@@ -1,10 +1,11 @@
 <aside class="aside-right">
-    <!-- Currently reading -->
+    <!-- Currently reading
     <div class="asd-item rd currently-reading">
         <div class="reading-hover" style="background-image: url('img/book1.jpg');">
             <a href="">Continuar leyendo</a>
         </div>
-    </div>                
+    </div>
+     -->                
     <!-- Ask for content -->
     <div class="asd-item rd">
         <h1 class="asd-title">¿NO ENCUENTRAS LO QUE QUIERES LEER?</h1>
@@ -20,7 +21,7 @@
                     </select>
                     <svg><use xlink:href="#down" /></svg>
                 </label>
-                <input type="mail" placeholder="Correo">
+                <input type="mail" placeholder="Correo electrónico">
                 <button>Enviar</button>
             </form>
         </div>

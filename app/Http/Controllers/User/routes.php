@@ -2,6 +2,7 @@
 	Route::group(['namespace' => 'User'], function() {
 		Route::get('/', 'PagesController@index');
 		Route::get('comunidad', 'PagesController@community')->name('community');
+		Route::get('perfil/{alias}', 'PagesController@profile')->name('profile');
 		/* Functionality */
 		Route::post('status', 'StatusController@storeStatus')->name('storeStatus');
 		Route::post('photo', 'UserController@uploadPhoto')->name('photo');

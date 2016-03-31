@@ -5,6 +5,7 @@ namespace App;
 use App\Models\Follower;
 use App\Models\Like;
 use App\Models\Status;
+use App\Models\Wishlist;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
 
@@ -81,6 +82,10 @@ class User extends Authenticatable
         $this->save();
     }
 
+    public function wishlist() {
+        return $this->hasMany('App\Models\Wishlist', 'user_id');
+    }
+
     /**
      * Check if a user likes something
      * @param $id
@@ -101,6 +106,14 @@ class User extends Authenticatable
     public function isFollowing($id) {
         $following = Follower::where('user', '=', $this->id)->where('is_following', '=', $id)->first();
         if (!$following) {
+            return false;
+        }
+        return true;
+    }
+
+    public function isReading($id) {
+        $wishlist = Wishlist::where('user_id', '=', $this->id)->where('content_id', '=', $id)->first();
+        if (!$wishlist) {
             return false;
         }
         return true;

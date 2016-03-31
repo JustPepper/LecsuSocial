@@ -49,9 +49,6 @@
     <nav class="asd-nav">
         <ul>
             <li class="asd-item">
-                <a href="{{ route('content') }}" class="flex"><i><svg><use xlink:href="#content"></svg></i>CONTENIDOS</a>
-            </li>
-            <li class="asd-item">
                 <a href="#" class="flex"><i><svg><use xlink:href="#plan"></svg></i>MIS DATOS / MI PLAN</a></li>
             <li class="asd-item">
                 <a href="#" class="flex"><i><svg><use xlink:href="#referrals"></svg></i>REFERIDOS</a></li>
